@@ -1,0 +1,235 @@
+{
+  "by_gate_pack": {
+    "ca-certificate-profile": 5,
+    "ca-spki-public-key": 5,
+    "import-private-key": 7
+  },
+  "default_operator_mode": "deployable",
+  "gate_pack_count": 3,
+  "gate_packs": [
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_coverage.sh --mode strict"
+        ]
+      },
+      "deployable": {
+        "block_count": 5,
+        "blocking_requirement_ids": [
+          "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+          "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+          "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+          "MLDSA-PKIX-HASHML-FORBIDDEN",
+          "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "gate_pack": "ca-certificate-profile",
+      "inspect_outputs": {
+        "deployable": [
+          "results/extended_registry_summary_deployable.json",
+          "results/policy_summary_deployable.json",
+          "results/certificate_spki_coverage_deployable.json",
+          "results/operator_readiness_summary.json"
+        ],
+        "strict": [
+          "results/extended_registry_summary.json",
+          "results/policy_summary_strict.json",
+          "results/certificate_spki_coverage.json",
+          "results/operator_readiness_summary.json"
+        ]
+      },
+      "owner": "ca-preissuance",
+      "purpose": "What the CA inspects in the certificate/profile gate before issuance, including keyUsage, signatureAlgorithm, and PKIX algorithm-policy checks.",
+      "requirement_count": 5,
+      "requirement_ids": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+        "MLDSA-PKIX-HASHML-FORBIDDEN",
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "stage": "certificate/profile",
+      "strict": {
+        "block_count": 5,
+        "blocking_requirement_ids": [
+          "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+          "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+          "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+          "MLDSA-PKIX-HASHML-FORBIDDEN",
+          "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "title": "CA certificate/profile gate"
+    },
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_coverage.sh --mode strict"
+        ]
+      },
+      "deployable": {
+        "block_count": 4,
+        "blocking_requirement_ids": [
+          "MLDSA-SPKI-AID-PARAMS-ABSENT",
+          "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+          "MLKEM-SPKI-AID-PARAMS-ABSENT",
+          "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 1,
+        "warning_requirement_ids": [
+          "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+        ]
+      },
+      "gate_pack": "ca-spki-public-key",
+      "inspect_outputs": {
+        "deployable": [
+          "results/extended_registry_summary_deployable.json",
+          "results/policy_summary_deployable.json",
+          "results/certificate_spki_coverage_deployable.json",
+          "results/operator_gate_matrix.json"
+        ],
+        "strict": [
+          "results/extended_registry_summary.json",
+          "results/policy_summary_strict.json",
+          "results/certificate_spki_coverage.json",
+          "results/operator_gate_matrix.json"
+        ]
+      },
+      "owner": "ca-preissuance",
+      "purpose": "What the CA inspects in SubjectPublicKeyInfo before issuance, including AlgorithmIdentifier correctness and parameter-set sizing.",
+      "requirement_count": 5,
+      "requirement_ids": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT",
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+        "MLKEM-SPKI-AID-PARAMS-ABSENT",
+        "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "stage": "SPKI/public-key",
+      "strict": {
+        "block_count": 5,
+        "blocking_requirement_ids": [
+          "MLDSA-SPKI-AID-PARAMS-ABSENT",
+          "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+          "MLKEM-SPKI-AID-PARAMS-ABSENT",
+          "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+          "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "title": "CA SPKI/public-key gate"
+    },
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/build_libcrux_import_check.sh",
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_private_key_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/build_libcrux_import_check.sh",
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_private_key_coverage.sh --mode strict"
+        ]
+      },
+      "deployable": {
+        "block_count": 7,
+        "blocking_requirement_ids": [
+          "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+          "MLDSA-PRIVATE-EXPANDED-LENGTH",
+          "MLDSA-PRIVATE-SEED-LENGTH",
+          "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+          "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+          "MLKEM-PRIVATE-EXPANDED-LENGTH",
+          "MLKEM-PRIVATE-SEED-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "gate_pack": "import-private-key",
+      "inspect_outputs": {
+        "deployable": [
+          "results/extended_registry_summary_deployable.json",
+          "results/policy_summary_deployable.json",
+          "results/private_key_coverage_deployable.json",
+          "results/operator_gate_matrix.json"
+        ],
+        "strict": [
+          "results/extended_registry_summary.json",
+          "results/policy_summary_strict.json",
+          "results/private_key_coverage.json",
+          "results/operator_gate_matrix.json"
+        ]
+      },
+      "owner": "artifact-importer",
+      "purpose": "What the importer inspects before private-key acceptance, including CHOICE form, lengths, and seed/expanded consistency checks.",
+      "requirement_count": 7,
+      "requirement_ids": [
+        "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+        "MLDSA-PRIVATE-EXPANDED-LENGTH",
+        "MLDSA-PRIVATE-SEED-LENGTH",
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+        "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+        "MLKEM-PRIVATE-EXPANDED-LENGTH",
+        "MLKEM-PRIVATE-SEED-LENGTH"
+      ],
+      "stage": "private-key-container/import",
+      "strict": {
+        "block_count": 7,
+        "blocking_requirement_ids": [
+          "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+          "MLDSA-PRIVATE-EXPANDED-LENGTH",
+          "MLDSA-PRIVATE-SEED-LENGTH",
+          "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+          "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+          "MLKEM-PRIVATE-EXPANDED-LENGTH",
+          "MLKEM-PRIVATE-SEED-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "title": "Importer private-key gate"
+    }
+  ],
+  "notes": [
+    "CA guidance defaults to deployable mode so operator runs align with low-noise issuance gating.",
+    "Strict mode remains the assurance-maximizing reference and should be used for deep audits or pre-release checks.",
+    "The only non-blocking deployable requirement in the current registry is MLKEM-SPKI-ENCODE-DECODE-IDENTITY."
+  ],
+  "profile": "pkix-core",
+  "reference_mode": "strict",
+  "requirement_count": 17,
+  "runtime_boundary": {
+    "note": "runtime-consumer remains explicit as a boundary in pkix-core, but no active runtime requirements are executable in this repository snapshot.",
+    "owner": "runtime-consumer",
+    "status": "out-of-scope"
+  },
+  "status": "operator-gate-packs-locked"
+}

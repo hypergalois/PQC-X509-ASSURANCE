@@ -1,0 +1,47 @@
+# OS / archive cruft
+.DS_Store
+__MACOSX/
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+env/
+.python-version
+build/
+dist/
+*.egg-info/
+
+# Local replay state
+.m2/
+corpus/tmp/
+tmp/
+results/environment.txt
+results/baseline_jzlint_jlint_pqc_tests.txt
+results/replay.log
+results/replay_status.txt
+
+# Rust bridge build output
+tools/libcrux_import_check/target/
+
+# Build output inside vendored upstream trees
+third_party/**/target/
+third_party/**/__pycache__/
+third_party/**/.pytest_cache/

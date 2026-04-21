@@ -1,0 +1,604 @@
+{
+  "schema_version": 2,
+  "project": "pqc-x509-assurance",
+  "last_updated": "2026-04-15",
+  "sources": [
+    {
+      "id": "FIPS203",
+      "label": "FIPS 203",
+      "local_path": "../reference/NIST.FIPS.203.pdf",
+      "sha256": "fe1f12f32a7e44ec9fdebbf400cda843a40b506dee676725234dc6f7923b6cac"
+    },
+    {
+      "id": "FIPS204",
+      "label": "FIPS 204",
+      "local_path": "../reference/NIST.FIPS.204.pdf",
+      "sha256": "57239b9f84c03227eda3ca0991204dc7764c79af9ce2e6824eda774918d46b6b"
+    },
+    {
+      "id": "RFC9881",
+      "label": "RFC 9881",
+      "local_path": "../reference/rfc9881.pdf",
+      "sha256": "4b586ec732b23a30bdf72aaacd37177419efdd8a53ec9ba7c20f3e13aa1d47b1"
+    },
+    {
+      "id": "RFC9935",
+      "label": "RFC 9935",
+      "local_path": "../reference/rfc9935.pdf",
+      "sha256": "977e6fb42ecd487dbbeb05fe36dd3e152374c8b474454f7559351ecb6f78cb3b"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "stage": "SPKI/public-key",
+      "fault_family": "encoding/container",
+      "source": [
+        "RFC9935"
+      ],
+      "source_locators": [
+        "RFC 9935 section 3, extracted-text lines 174-189: ML-KEM public-key AlgorithmIdentifier OIDs and absent parameters.",
+        "RFC 9935 section 4, extracted-text lines 221-240: ML-KEM public-key ASN.1 definitions with PARAMS ARE absent."
+      ],
+      "requirement": "ML-KEM SubjectPublicKeyInfo AlgorithmIdentifier must use an ML-KEM OID and absent parameters.",
+      "severity": "error",
+      "baseline_status": "partial",
+      "mutation_family": [
+        "aid-parameters-null",
+        "aid-parameters-present-non-null",
+        "aid-oid-family-swap"
+      ],
+      "expected_detector": "detector.algorithm_identifier.parameters_absent",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-spki-public-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "Malformed ML-KEM AlgorithmIdentifier breaks PKIX interoperability at issuance and consumption time."
+    },
+    {
+      "id": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "algorithm": "ML-KEM",
+      "artifact_type": "certificate",
+      "stage": "certificate/profile",
+      "fault_family": "profile/usage-policy",
+      "source": [
+        "RFC9935"
+      ],
+      "source_locators": [
+        "RFC 9935 section 5, extracted-text lines 277-280: keyEncipherment MUST be the only key usage for certificates with id-alg-ml-kem-*."
+      ],
+      "requirement": "If keyUsage is present for an ML-KEM certificate, keyEncipherment must be the only active bit.",
+      "severity": "error",
+      "baseline_status": "incomplete",
+      "mutation_family": [
+        "keyusage-missing-key-encipherment",
+        "keyusage-extra-prohibited-bit",
+        "keyusage-empty"
+      ],
+      "expected_detector": "detector.key_usage.mlkem_key_encipherment_only",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-certificate-profile",
+      "detector_kind": "policy",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-KEM certificate keyUsage is an issuance policy requirement and should block misprofiled certificates."
+    },
+    {
+      "id": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "stage": "SPKI/public-key",
+      "fault_family": "size/shape",
+      "source": [
+        "FIPS203",
+        "RFC9935"
+      ],
+      "source_locators": [
+        "FIPS 203 section 8 Table 3, extracted-text lines 2139-2144: ML-KEM encapsulation key sizes 800, 1184, and 1568 bytes.",
+        "RFC 9935 section 4, extracted-text lines 244-248: ML-KEM PublicKey OCTET STRING sizes 800, 1184, and 1568 bytes."
+      ],
+      "requirement": "ML-KEM public key payload length must match the parameter set: 800, 1184, or 1568 bytes.",
+      "severity": "error",
+      "baseline_status": "covered-for-encoded-key",
+      "mutation_family": [
+        "spki-public-key-truncate",
+        "spki-public-key-extend",
+        "spki-oid-length-mismatch"
+      ],
+      "expected_detector": "detector.spki.payload_length",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-spki-public-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "Wrong ML-KEM public-key length is a structural defect that indicates malformed SPKI encoding."
+    },
+    {
+      "id": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "stage": "SPKI/public-key",
+      "fault_family": "field-domain",
+      "source": [
+        "FIPS203"
+      ],
+      "source_locators": [
+        "FIPS 203 section 4, extracted-text lines 1286-1297: ByteDecode12 can produce values that cannot occur from ByteEncode12.",
+        "FIPS 203 section 7.2, extracted-text lines 2028-2040: encapsulation-key type and modulus checks using ByteEncode12(ByteDecode12(...))."
+      ],
+      "requirement": "Decoding and then re-encoding the ML-KEM encapsulation key must reproduce the original byte string.",
+      "severity": "error",
+      "baseline_status": "covered-by-external-lint-path",
+      "mutation_family": [
+        "mlkem-unreduced-byteencode12-value"
+      ],
+      "expected_detector": "detector.mlkem.encode_decode_identity",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-spki-public-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "warn",
+        "strict": "block"
+      },
+      "justification": "Unreduced ML-KEM encoded keys are structurally suspicious and should at least surface operationally until local detection is implemented."
+    },
+    {
+      "id": "MLKEM-PRIVATE-SEED-LENGTH",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "size/shape",
+      "source": [
+        "RFC9935"
+      ],
+      "source_locators": [
+        "RFC 9935 section 6, extracted-text lines 329-356: ML-KEM PrivateKey CHOICE seed [0] OCTET STRING size 64 for all parameter sets.",
+        "RFC 9935 section 6, extracted-text lines 365-399: seed format and ASN.1 tag parsing guidance."
+      ],
+      "requirement": "ML-KEM private-key seed representation must be 64 bytes.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "private-key-seed-length-short",
+        "private-key-seed-length-long",
+        "private-key-choice-tag-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mlkem_seed_length",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-KEM seed-only private keys must match the RFC container size before import proceeds."
+    },
+    {
+      "id": "MLKEM-PRIVATE-EXPANDED-LENGTH",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "size/shape",
+      "source": [
+        "RFC9935",
+        "FIPS203"
+      ],
+      "source_locators": [
+        "RFC 9935 section 6, extracted-text lines 335-356: expandedKey sizes 1632, 2400, and 3168 bytes.",
+        "FIPS 203 section 8 Table 3, extracted-text lines 2139-2144: decapsulation key sizes 1632, 2400, and 3168 bytes."
+      ],
+      "requirement": "ML-KEM expanded private key length must match the parameter set: 1632, 2400, or 3168 bytes.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "private-key-expanded-length-short",
+        "private-key-expanded-length-long",
+        "private-key-oid-expanded-length-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mlkem_expanded_length",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-KEM expanded private keys must match parameter-set sizes before import proceeds."
+    },
+    {
+      "id": "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "inter-field-consistency",
+      "source": [
+        "RFC9935"
+      ],
+      "source_locators": [
+        "RFC 9935 section 8, extracted-text lines 427-432: recipient should check seed/expandedKey consistency and MUST reject if the check fails."
+      ],
+      "requirement": "If an ML-KEM private key contains both seed and expanded key, import validation should regenerate and reject malformed inconsistency.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "private-key-both-seed-expanded-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mlkem_seed_expanded_consistency",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "import-crypto",
+      "normative_strength": "should",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "A both-form ML-KEM private key must be rejected on seed/expanded mismatch during import."
+    },
+    {
+      "id": "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "import-validation",
+      "source": [
+        "FIPS203",
+        "RFC9935"
+      ],
+      "source_locators": [
+        "FIPS 203 section 7.3, extracted-text lines 2073-2088: decapsulation input hash check before Decaps.",
+        "RFC 9935 section 8, extracted-text lines 443-445: expandedKey requires FIPS 203 hash check before use."
+      ],
+      "requirement": "An ML-KEM expanded private key requires the relevant import hash check before use.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "mlkem-expanded-key-hash-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mlkem_hash_check",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "import-crypto",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "Expanded ML-KEM private keys require the FIPS/RFC hash check before use."
+    },
+    {
+      "id": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "algorithm": "ML-DSA",
+      "artifact_type": "spki",
+      "stage": "SPKI/public-key",
+      "fault_family": "encoding/container",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 2, extracted-text lines 179-189: ML-DSA OIDs and absent parameters.",
+        "RFC 9881 section 4, extracted-text lines 336-350: ML-DSA public-key ASN.1 definitions."
+      ],
+      "requirement": "ML-DSA SubjectPublicKeyInfo AlgorithmIdentifier must use an ML-DSA OID and absent parameters.",
+      "severity": "error",
+      "baseline_status": "partial",
+      "mutation_family": [
+        "aid-parameters-null",
+        "aid-parameters-present-non-null",
+        "aid-oid-family-swap"
+      ],
+      "expected_detector": "detector.algorithm_identifier.parameters_absent",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-spki-public-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "Malformed ML-DSA AlgorithmIdentifier breaks PKIX interoperability at issuance and validation time."
+    },
+    {
+      "id": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "stage": "certificate/profile",
+      "fault_family": "encoding/container",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 3, extracted-text lines 246-272: ML-DSA signature AlgorithmIdentifier definitions and absent parameters."
+      ],
+      "requirement": "ML-DSA signatureAlgorithm must use an ML-DSA OID with absent parameters.",
+      "severity": "error",
+      "baseline_status": "partial",
+      "mutation_family": [
+        "signature-aid-parameters-null",
+        "signature-aid-parameters-present-non-null",
+        "signature-aid-oid-family-swap"
+      ],
+      "expected_detector": "detector.signature_algorithm.mldsa_parameters_absent",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-certificate-profile",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-DSA certificate signatureAlgorithm encoding is a PKIX conformance requirement and should block issuance defects."
+    },
+    {
+      "id": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "stage": "certificate/profile",
+      "fault_family": "profile/usage-policy",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 5, extracted-text lines 381-396: if keyUsage is present for ML-DSA, at least one signing-related bit is required."
+      ],
+      "requirement": "If keyUsage is present for an ML-DSA certificate, at least one of digitalSignature, nonRepudiation, keyCertSign, or cRLSign must be active.",
+      "severity": "error",
+      "baseline_status": "incomplete",
+      "mutation_family": [
+        "keyusage-missing-signature-bit",
+        "keyusage-empty"
+      ],
+      "expected_detector": "detector.key_usage.mldsa_requires_signing_usage",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-certificate-profile",
+      "detector_kind": "policy",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-DSA certificates need a permitted signing usage when keyUsage is present."
+    },
+    {
+      "id": "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "stage": "certificate/profile",
+      "fault_family": "profile/usage-policy",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 5, extracted-text lines 404-413: ML-DSA keyUsage MUST NOT contain key-establishment or encryption bits."
+      ],
+      "requirement": "ML-DSA keyUsage must not contain keyEncipherment, dataEncipherment, keyAgreement, encipherOnly, or decipherOnly.",
+      "severity": "error",
+      "baseline_status": "covered-for-prohibited-bits",
+      "mutation_family": [
+        "keyusage-key-encipherment",
+        "keyusage-data-encipherment",
+        "keyusage-key-agreement",
+        "keyusage-encipher-only",
+        "keyusage-decipher-only"
+      ],
+      "expected_detector": "detector.key_usage.mldsa_forbid_encipherment_agreement",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-certificate-profile",
+      "detector_kind": "policy",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-DSA certificates must not advertise encipherment or agreement semantics they cannot safely support."
+    },
+    {
+      "id": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "algorithm": "ML-DSA",
+      "artifact_type": "spki",
+      "stage": "SPKI/public-key",
+      "fault_family": "size/shape",
+      "source": [
+        "FIPS204",
+        "RFC9881"
+      ],
+      "source_locators": [
+        "FIPS 204 section 4 Table 2, extracted-text lines 1105-1110: ML-DSA public key sizes 1312, 1952, and 2592 bytes.",
+        "RFC 9881 section 4, extracted-text lines 356-360: ML-DSA PublicKey OCTET STRING sizes 1312, 1952, and 2592 bytes.",
+        "RFC 9881 Appendix A, extracted-text lines 895-899: known appendix transcription conflict for ML-DSA-87-PublicKey as 2602."
+      ],
+      "requirement": "ML-DSA public key payload length must match the parameter set: 1312, 1952, or 2592 bytes.",
+      "severity": "error",
+      "baseline_status": "gap-or-unverified",
+      "mutation_family": [
+        "spki-public-key-truncate",
+        "spki-public-key-extend",
+        "spki-oid-length-mismatch",
+        "rfc9881-appendix-size-transcription-2602"
+      ],
+      "expected_detector": "detector.spki.payload_length",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-spki-public-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "Wrong ML-DSA public-key length is a structural defect that indicates malformed SPKI encoding."
+    },
+    {
+      "id": "MLDSA-PKIX-HASHML-FORBIDDEN",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "stage": "certificate/profile",
+      "fault_family": "algorithm-policy",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 8.3, extracted-text lines 600-611: HashML-DSA MUST NOT be used in the listed PKIX certificate, CRL, OCSP, and related contexts.",
+        "FIPS 204 section 5.4, extracted-text lines 1218-1231: HashML-DSA is pre-hash ML-DSA and requires identifiers/application handling distinct from pure ML-DSA."
+      ],
+      "requirement": "HashML-DSA must not be used for PKIX certificates, CRLs, OCSP, issuance, or related protocols where RFC 9881 prohibits it.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "hashml-dsa-signature-oid-in-pkix-cert",
+        "hashml-dsa-pkix-context"
+      ],
+      "expected_detector": "detector.algorithm_policy.hashml_dsa_forbidden",
+      "profile": "pkix-core",
+      "owner": "ca-preissuance",
+      "gate_pack": "ca-certificate-profile",
+      "detector_kind": "policy",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "HashML-DSA is prohibited in the covered PKIX certificate contexts and should always block."
+    },
+    {
+      "id": "MLDSA-PRIVATE-SEED-LENGTH",
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "size/shape",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 6, extracted-text lines 459-496: ML-DSA PrivateKey CHOICE seed [0] OCTET STRING size 32 for all parameter sets.",
+        "RFC 9881 section 6, extracted-text lines 507-540: seed format and ASN.1 tag parsing guidance."
+      ],
+      "requirement": "ML-DSA private-key seed representation must be 32 bytes.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "private-key-seed-length-short",
+        "private-key-seed-length-long",
+        "private-key-choice-tag-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mldsa_seed_length",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-DSA seed-only private keys must match the RFC container size before import proceeds."
+    },
+    {
+      "id": "MLDSA-PRIVATE-EXPANDED-LENGTH",
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "size/shape",
+      "source": [
+        "RFC9881",
+        "FIPS204"
+      ],
+      "source_locators": [
+        "RFC 9881 section 6, extracted-text lines 473-496: expandedKey sizes 2560, 4032, and 4896 bytes.",
+        "FIPS 204 section 4 Table 2, extracted-text lines 1105-1110: ML-DSA private key sizes 2560, 4032, and 4896 bytes."
+      ],
+      "requirement": "ML-DSA expanded private key length must match the parameter set: 2560, 4032, or 4896 bytes.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "private-key-expanded-length-short",
+        "private-key-expanded-length-long",
+        "private-key-oid-expanded-length-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mldsa_expanded_length",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "structural",
+      "normative_strength": "must",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "ML-DSA expanded private keys must match parameter-set sizes before import proceeds."
+    },
+    {
+      "id": "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "stage": "private-key-container/import",
+      "fault_family": "inter-field-consistency",
+      "source": [
+        "RFC9881"
+      ],
+      "source_locators": [
+        "RFC 9881 section 8.2, extracted-text lines 586-591: recipient should check seed/expandedKey consistency and MUST reject if the check fails."
+      ],
+      "requirement": "If an ML-DSA private key contains both seed and expanded key, import validation should regenerate and reject malformed inconsistency.",
+      "severity": "error",
+      "baseline_status": "gap",
+      "mutation_family": [
+        "private-key-both-seed-expanded-mismatch"
+      ],
+      "expected_detector": "detector.private_key.mldsa_seed_expanded_consistency",
+      "profile": "pkix-core",
+      "owner": "artifact-importer",
+      "gate_pack": "import-private-key",
+      "detector_kind": "import-crypto",
+      "normative_strength": "should",
+      "constructibility": "covered",
+      "mode_action": {
+        "deployable": "block",
+        "strict": "block"
+      },
+      "justification": "A both-form ML-DSA private key must be rejected on seed/expanded mismatch during import."
+    }
+  ]
+}

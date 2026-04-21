@@ -1,0 +1,438 @@
+{
+  "gate_packs": [
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_coverage.sh --mode strict"
+        ]
+      },
+      "deployable": {
+        "block_count": 5,
+        "blocking_requirement_ids": [
+          "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+          "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+          "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+          "MLDSA-PKIX-HASHML-FORBIDDEN",
+          "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "gate_pack": "ca-certificate-profile",
+      "inspect_outputs": {
+        "deployable": [
+          "results/extended_registry_summary_deployable.json",
+          "results/policy_summary_deployable.json",
+          "results/certificate_spki_coverage_deployable.json",
+          "results/operator_readiness_summary.json"
+        ],
+        "strict": [
+          "results/extended_registry_summary.json",
+          "results/policy_summary_strict.json",
+          "results/certificate_spki_coverage.json",
+          "results/operator_readiness_summary.json"
+        ]
+      },
+      "owner": "ca-preissuance",
+      "purpose": "What the CA inspects in the certificate/profile gate before issuance, including keyUsage, signatureAlgorithm, and PKIX algorithm-policy checks.",
+      "requirement_count": 5,
+      "requirement_ids": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+        "MLDSA-PKIX-HASHML-FORBIDDEN",
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "stage": "certificate/profile",
+      "strict": {
+        "block_count": 5,
+        "blocking_requirement_ids": [
+          "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+          "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+          "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+          "MLDSA-PKIX-HASHML-FORBIDDEN",
+          "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "title": "CA certificate/profile gate"
+    },
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_coverage.sh --mode strict"
+        ]
+      },
+      "deployable": {
+        "block_count": 4,
+        "blocking_requirement_ids": [
+          "MLDSA-SPKI-AID-PARAMS-ABSENT",
+          "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+          "MLKEM-SPKI-AID-PARAMS-ABSENT",
+          "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 1,
+        "warning_requirement_ids": [
+          "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+        ]
+      },
+      "gate_pack": "ca-spki-public-key",
+      "inspect_outputs": {
+        "deployable": [
+          "results/extended_registry_summary_deployable.json",
+          "results/policy_summary_deployable.json",
+          "results/certificate_spki_coverage_deployable.json",
+          "results/operator_gate_matrix.json"
+        ],
+        "strict": [
+          "results/extended_registry_summary.json",
+          "results/policy_summary_strict.json",
+          "results/certificate_spki_coverage.json",
+          "results/operator_gate_matrix.json"
+        ]
+      },
+      "owner": "ca-preissuance",
+      "purpose": "What the CA inspects in SubjectPublicKeyInfo before issuance, including AlgorithmIdentifier correctness and parameter-set sizing.",
+      "requirement_count": 5,
+      "requirement_ids": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT",
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+        "MLKEM-SPKI-AID-PARAMS-ABSENT",
+        "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "stage": "SPKI/public-key",
+      "strict": {
+        "block_count": 5,
+        "blocking_requirement_ids": [
+          "MLDSA-SPKI-AID-PARAMS-ABSENT",
+          "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+          "MLKEM-SPKI-AID-PARAMS-ABSENT",
+          "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+          "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "title": "CA SPKI/public-key gate"
+    },
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/build_libcrux_import_check.sh",
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_private_key_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/build_libcrux_import_check.sh",
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_private_key_coverage.sh --mode strict"
+        ]
+      },
+      "deployable": {
+        "block_count": 7,
+        "blocking_requirement_ids": [
+          "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+          "MLDSA-PRIVATE-EXPANDED-LENGTH",
+          "MLDSA-PRIVATE-SEED-LENGTH",
+          "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+          "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+          "MLKEM-PRIVATE-EXPANDED-LENGTH",
+          "MLKEM-PRIVATE-SEED-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "gate_pack": "import-private-key",
+      "inspect_outputs": {
+        "deployable": [
+          "results/extended_registry_summary_deployable.json",
+          "results/policy_summary_deployable.json",
+          "results/private_key_coverage_deployable.json",
+          "results/operator_gate_matrix.json"
+        ],
+        "strict": [
+          "results/extended_registry_summary.json",
+          "results/policy_summary_strict.json",
+          "results/private_key_coverage.json",
+          "results/operator_gate_matrix.json"
+        ]
+      },
+      "owner": "artifact-importer",
+      "purpose": "What the importer inspects before private-key acceptance, including CHOICE form, lengths, and seed/expanded consistency checks.",
+      "requirement_count": 7,
+      "requirement_ids": [
+        "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+        "MLDSA-PRIVATE-EXPANDED-LENGTH",
+        "MLDSA-PRIVATE-SEED-LENGTH",
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+        "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+        "MLKEM-PRIVATE-EXPANDED-LENGTH",
+        "MLKEM-PRIVATE-SEED-LENGTH"
+      ],
+      "stage": "private-key-container/import",
+      "strict": {
+        "block_count": 7,
+        "blocking_requirement_ids": [
+          "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+          "MLDSA-PRIVATE-EXPANDED-LENGTH",
+          "MLDSA-PRIVATE-SEED-LENGTH",
+          "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+          "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+          "MLKEM-PRIVATE-EXPANDED-LENGTH",
+          "MLKEM-PRIVATE-SEED-LENGTH"
+        ],
+        "ignore_count": 0,
+        "ignored_requirement_ids": [],
+        "warn_count": 0,
+        "warning_requirement_ids": []
+      },
+      "title": "Importer private-key gate"
+    }
+  ],
+  "profile": "pkix-core",
+  "rows": [
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "certificate",
+      "baseline_status": "incomplete",
+      "deployable_action": "block",
+      "expected_detector": "detector.key_usage.mlkem_key_encipherment_only",
+      "fault_family": "profile/usage-policy",
+      "gate_pack": "ca-certificate-profile",
+      "id": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "owner": "ca-preissuance",
+      "stage": "certificate/profile",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "baseline_status": "partial",
+      "deployable_action": "block",
+      "expected_detector": "detector.signature_algorithm.mldsa_parameters_absent",
+      "fault_family": "encoding/container",
+      "gate_pack": "ca-certificate-profile",
+      "id": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "owner": "ca-preissuance",
+      "stage": "certificate/profile",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "baseline_status": "incomplete",
+      "deployable_action": "block",
+      "expected_detector": "detector.key_usage.mldsa_requires_signing_usage",
+      "fault_family": "profile/usage-policy",
+      "gate_pack": "ca-certificate-profile",
+      "id": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "owner": "ca-preissuance",
+      "stage": "certificate/profile",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "baseline_status": "covered-for-prohibited-bits",
+      "deployable_action": "block",
+      "expected_detector": "detector.key_usage.mldsa_forbid_encipherment_agreement",
+      "fault_family": "profile/usage-policy",
+      "gate_pack": "ca-certificate-profile",
+      "id": "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+      "owner": "ca-preissuance",
+      "stage": "certificate/profile",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.algorithm_policy.hashml_dsa_forbidden",
+      "fault_family": "algorithm-policy",
+      "gate_pack": "ca-certificate-profile",
+      "id": "MLDSA-PKIX-HASHML-FORBIDDEN",
+      "owner": "ca-preissuance",
+      "stage": "certificate/profile",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "baseline_status": "partial",
+      "deployable_action": "block",
+      "expected_detector": "detector.algorithm_identifier.parameters_absent",
+      "fault_family": "encoding/container",
+      "gate_pack": "ca-spki-public-key",
+      "id": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "owner": "ca-preissuance",
+      "stage": "SPKI/public-key",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "baseline_status": "covered-for-encoded-key",
+      "deployable_action": "block",
+      "expected_detector": "detector.spki.payload_length",
+      "fault_family": "size/shape",
+      "gate_pack": "ca-spki-public-key",
+      "id": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "owner": "ca-preissuance",
+      "stage": "SPKI/public-key",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "baseline_status": "covered-by-external-lint-path",
+      "deployable_action": "warn",
+      "expected_detector": "detector.mlkem.encode_decode_identity",
+      "fault_family": "field-domain",
+      "gate_pack": "ca-spki-public-key",
+      "id": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+      "owner": "ca-preissuance",
+      "stage": "SPKI/public-key",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "spki",
+      "baseline_status": "partial",
+      "deployable_action": "block",
+      "expected_detector": "detector.algorithm_identifier.parameters_absent",
+      "fault_family": "encoding/container",
+      "gate_pack": "ca-spki-public-key",
+      "id": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "owner": "ca-preissuance",
+      "stage": "SPKI/public-key",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "spki",
+      "baseline_status": "gap-or-unverified",
+      "deployable_action": "block",
+      "expected_detector": "detector.spki.payload_length",
+      "fault_family": "size/shape",
+      "gate_pack": "ca-spki-public-key",
+      "id": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "owner": "ca-preissuance",
+      "stage": "SPKI/public-key",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mlkem_seed_length",
+      "fault_family": "size/shape",
+      "gate_pack": "import-private-key",
+      "id": "MLKEM-PRIVATE-SEED-LENGTH",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mlkem_expanded_length",
+      "fault_family": "size/shape",
+      "gate_pack": "import-private-key",
+      "id": "MLKEM-PRIVATE-EXPANDED-LENGTH",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mlkem_seed_expanded_consistency",
+      "fault_family": "inter-field-consistency",
+      "gate_pack": "import-private-key",
+      "id": "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mlkem_hash_check",
+      "fault_family": "import-validation",
+      "gate_pack": "import-private-key",
+      "id": "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mldsa_seed_length",
+      "fault_family": "size/shape",
+      "gate_pack": "import-private-key",
+      "id": "MLDSA-PRIVATE-SEED-LENGTH",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mldsa_expanded_length",
+      "fault_family": "size/shape",
+      "gate_pack": "import-private-key",
+      "id": "MLDSA-PRIVATE-EXPANDED-LENGTH",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "baseline_status": "gap",
+      "deployable_action": "block",
+      "expected_detector": "detector.private_key.mldsa_seed_expanded_consistency",
+      "fault_family": "inter-field-consistency",
+      "gate_pack": "import-private-key",
+      "id": "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+      "owner": "artifact-importer",
+      "stage": "private-key-container/import",
+      "strict_action": "block"
+    }
+  ]
+}

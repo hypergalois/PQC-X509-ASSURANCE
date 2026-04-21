@@ -1,0 +1,9 @@
+artifact_id,algorithm,parameter_set,validity,expected_detection,baseline_status,baseline_expected_detection_met,baseline_detected_requirements,baseline_fatal_lints,baseline_expected_blocked_by_fatal,baseline_first_expected_requirement,baseline_elapsed_ms,extended_status,extended_expected_detection_met,extended_detected_requirements,extended_first_expected_requirement,extended_elapsed_ms,comparison_class
+appendix-ossl35-mldsa44-ta-cert,ML-DSA,ML-DSA-44,valid,,pass,None,,,,None,680.926,pass,None,,None,0.21,same-pass
+appendix-ossl35-mldsa65-ta-cert,ML-DSA,ML-DSA-65,valid,,pass,None,,,,None,632.708,pass,None,,None,0.19,same-pass
+appendix-ossl35-mldsa87-ta-cert,ML-DSA,ML-DSA-87,valid,,pass,None,,,,None,627.459,pass,None,,None,0.191,same-pass
+appendix-ossl35-mlkem512-ee-cert,ML-KEM,ML-KEM-512,valid,,fatal,None,,e_ml_kem_ek_encoding | e_ml_kem_ek_length,,None,658.823,pass,None,,None,0.469,baseline-runtime-fragile
+appendix-ossl35-mlkem768-ee-cert,ML-KEM,ML-KEM-768,valid,,fatal,None,,e_ml_kem_ek_encoding | e_ml_kem_ek_length,,None,603.31,pass,None,,None,0.338,baseline-runtime-fragile
+appendix-ossl35-mlkem1024-ee-cert,ML-KEM,ML-KEM-1024,valid,,fatal,None,,e_ml_kem_ek_encoding | e_ml_kem_ek_length,,None,646.638,pass,None,,None,0.389,baseline-runtime-fragile
+appendix-bc-mldsa65-ta-cert,ML-DSA,ML-DSA-65,valid,,pass,None,,,,None,644.02,pass,None,,None,0.179,same-pass
+appendix-bc-mlkem768-ee-cert,ML-KEM,ML-KEM-768,valid,,fatal,None,,e_ml_kem_ek_encoding | e_ml_kem_ek_length,,None,662.029,pass,None,,None,0.322,baseline-runtime-fragile

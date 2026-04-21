@@ -1,0 +1,233 @@
+{
+  "baseline": {
+    "artifact_count": 8,
+    "artifacts_with_fatal_lints": 4,
+    "by_status": {
+      "fatal": 4,
+      "pass": 4
+    },
+    "false_positive_artifacts": [],
+    "false_positive_count": 0,
+    "fatal_invalid_artifact_count": 0,
+    "fatal_invalid_artifacts": [],
+    "fatal_valid_artifact_count": 4,
+    "fatal_valid_artifacts": [
+      "appendix-ossl35-mlkem512-ee-cert",
+      "appendix-ossl35-mlkem768-ee-cert",
+      "appendix-ossl35-mlkem1024-ee-cert",
+      "appendix-bc-mlkem768-ee-cert"
+    ],
+    "first_useful_hit_artifacts": [],
+    "first_useful_hit_count": 0,
+    "invalid_count": 0,
+    "invalid_expected_detection_met": 0,
+    "invalid_expected_detection_missed": 0,
+    "invalid_expected_detection_missed_artifacts": [],
+    "latency_ms": {
+      "max": 680.926,
+      "mean": 644.489,
+      "median": 645.329,
+      "p95": 680.926
+    },
+    "redundant_error_artifact_count": 0,
+    "redundant_error_artifacts": [],
+    "unexpected_error_artifact_count": 0,
+    "unexpected_error_artifacts": [],
+    "valid_count": 8
+  },
+  "comparison": {
+    "baseline_fatal_extended_clean_artifacts": [
+      "appendix-ossl35-mlkem512-ee-cert",
+      "appendix-ossl35-mlkem768-ee-cert",
+      "appendix-ossl35-mlkem1024-ee-cert",
+      "appendix-bc-mlkem768-ee-cert"
+    ],
+    "baseline_missed_extended_met_artifacts": [],
+    "improvement_classes": {
+      "baseline-runtime-fragile": 4,
+      "same-pass": 4
+    },
+    "requirement_level": [
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "incomplete",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "covered-for-prohibited-bits",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "partial",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "gap",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-PKIX-HASHML-FORBIDDEN",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "partial",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "gap-or-unverified",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "incomplete",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "partial",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "covered-by-external-lint-path",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "covered-for-encoded-key",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+        "stage": "SPKI/public-key"
+      }
+    ]
+  },
+  "extended": {
+    "artifact_count": 8,
+    "artifacts_with_fatal_lints": 0,
+    "by_status": {
+      "pass": 8
+    },
+    "false_positive_artifacts": [],
+    "false_positive_count": 0,
+    "fatal_invalid_artifact_count": 0,
+    "fatal_invalid_artifacts": [],
+    "fatal_valid_artifact_count": 0,
+    "fatal_valid_artifacts": [],
+    "first_useful_hit_artifacts": [],
+    "first_useful_hit_count": 0,
+    "invalid_count": 0,
+    "invalid_expected_detection_met": 0,
+    "invalid_expected_detection_missed": 0,
+    "invalid_expected_detection_missed_artifacts": [],
+    "latency_ms": {
+      "max": 0.469,
+      "mean": 0.286,
+      "median": 0.266,
+      "p95": 0.469
+    },
+    "redundant_error_artifact_count": 0,
+    "redundant_error_artifacts": [],
+    "unexpected_error_artifact_count": 0,
+    "unexpected_error_artifacts": [],
+    "valid_count": 8
+  },
+  "scope": {
+    "artifact_count": 8,
+    "artifact_type": "certificate",
+    "baseline_executable": "third_party/jzlint-main/jlint-pqc/src/main/resources/cli.exe",
+    "baseline_snapshot": "third_party/jzlint-main",
+    "invalid_count": 0,
+    "java_binary": "java",
+    "note": "Comparison is certificate-only. Raw SPKI and private-key-container artifacts remain outside the frozen JZLint CLI baseline.",
+    "valid_count": 8
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "by_coverage_status": {
+    "covered-block": 7
+  },
+  "manifest_path": "corpus/manifest.jsonl",
+  "mode": "deployable",
+  "mutation_detection": [
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem512-key-seed-short",
+      "blocking_requirement_ids": [
+        "MLKEM-PRIVATE-SEED-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLKEM-PRIVATE-SEED-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-PRIVATE-SEED-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-PRIVATE-SEED-LENGTH",
+      "first_expected_requirement": "MLKEM-PRIVATE-SEED-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem512-key-expanded-short",
+      "blocking_requirement_ids": [
+        "MLKEM-PRIVATE-EXPANDED-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLKEM-PRIVATE-EXPANDED-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-PRIVATE-EXPANDED-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-PRIVATE-EXPANDED-LENGTH",
+      "first_expected_requirement": "MLKEM-PRIVATE-EXPANDED-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-key-seed-short",
+      "blocking_requirement_ids": [
+        "MLDSA-PRIVATE-SEED-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLDSA-PRIVATE-SEED-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-PRIVATE-SEED-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-PRIVATE-SEED-LENGTH",
+      "first_expected_requirement": "MLDSA-PRIVATE-SEED-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-key-expanded-short",
+      "blocking_requirement_ids": [
+        "MLDSA-PRIVATE-EXPANDED-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLDSA-PRIVATE-EXPANDED-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-PRIVATE-EXPANDED-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-PRIVATE-EXPANDED-LENGTH",
+      "first_expected_requirement": "MLDSA-PRIVATE-EXPANDED-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem512-key-both-mismatch",
+      "blocking_requirement_ids": [
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "detected_requirements": [
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+      "first_expected_requirement": "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem512-key-hash-mismatch",
+      "blocking_requirement_ids": [
+        "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "detected_requirements": [
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+        "MLKEM-PRIVATE-EXPANDED-HASH-CHECK"
+      ],
+      "error_count": 2,
+      "expected_detection": [
+        "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+        "MLKEM-PRIVATE-EXPANDED-HASH-CHECK"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+      "first_expected_requirement": "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 2,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-key-both-mismatch",
+      "blocking_requirement_ids": [
+        "MLDSA-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "detected_requirements": [
+        "MLDSA-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-PRIVATE-BOTH-CONSISTENCY"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+      "first_expected_requirement": "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "private-key-container/import",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    }
+  ],
+  "mutation_detection_summary": {
+    "by_final_disposition": {
+      "block": 7
+    },
+    "expected_detection_met_count": 7,
+    "expected_detection_missed_count": 0,
+    "invalid_artifact_count": 7,
+    "redundant_error_artifact_count": 0,
+    "unexpected_error_artifact_count": 0
+  },
+  "open_detector_gaps": [],
+  "profile": "pkix-core",
+  "registry_path": "requirements.json",
+  "requirement_count": 7,
+  "requirements": [
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mlkem_seed_length",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "size/shape",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mlkem512-key-seed-short"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "private-key-seed-length-short"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "private-key-choice-tag-mismatch",
+        "private-key-seed-length-long",
+        "private-key-seed-length-short"
+      ],
+      "requirement_id": "MLKEM-PRIVATE-SEED-LENGTH",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "private-key-choice-tag-mismatch",
+        "private-key-seed-length-long"
+      ],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mlkem_expanded_length",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "size/shape",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mlkem512-key-expanded-short"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "private-key-expanded-length-short"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "private-key-expanded-length-long",
+        "private-key-expanded-length-short",
+        "private-key-oid-expanded-length-mismatch"
+      ],
+      "requirement_id": "MLKEM-PRIVATE-EXPANDED-LENGTH",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "private-key-expanded-length-long",
+        "private-key-oid-expanded-length-mismatch"
+      ],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mlkem_seed_expanded_consistency",
+      "detector_kind": "import-crypto",
+      "detector_status": "implemented",
+      "fault_family": "inter-field-consistency",
+      "mode": "deployable",
+      "negative_artifact_count": 2,
+      "negative_artifacts": [
+        "der-mut-mlkem512-key-both-mismatch",
+        "der-mut-mlkem512-key-hash-mismatch"
+      ],
+      "normative_strength": "should",
+      "observed_mutation_families": [
+        "mlkem-expanded-key-hash-mismatch",
+        "private-key-both-seed-expanded-mismatch"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "private-key-both-seed-expanded-mismatch"
+      ],
+      "requirement_id": "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mlkem_hash_check",
+      "detector_kind": "import-crypto",
+      "detector_status": "implemented",
+      "fault_family": "import-validation",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mlkem512-key-hash-mismatch"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "mlkem-expanded-key-hash-mismatch"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "mlkem-expanded-key-hash-mismatch"
+      ],
+      "requirement_id": "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mldsa_seed_length",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "size/shape",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mldsa44-key-seed-short"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "private-key-seed-length-short"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "private-key-choice-tag-mismatch",
+        "private-key-seed-length-long",
+        "private-key-seed-length-short"
+      ],
+      "requirement_id": "MLDSA-PRIVATE-SEED-LENGTH",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "private-key-choice-tag-mismatch",
+        "private-key-seed-length-long"
+      ],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mldsa_expanded_length",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "size/shape",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mldsa44-key-expanded-short"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "private-key-expanded-length-short"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "private-key-expanded-length-long",
+        "private-key-expanded-length-short",
+        "private-key-oid-expanded-length-mismatch"
+      ],
+      "requirement_id": "MLDSA-PRIVATE-EXPANDED-LENGTH",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "private-key-expanded-length-long",
+        "private-key-oid-expanded-length-mismatch"
+      ],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "private-key-container",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.private_key.mldsa_seed_expanded_consistency",
+      "detector_kind": "import-crypto",
+      "detector_status": "implemented",
+      "fault_family": "inter-field-consistency",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mldsa44-key-both-mismatch"
+      ],
+      "normative_strength": "should",
+      "observed_mutation_families": [
+        "private-key-both-seed-expanded-mismatch"
+      ],
+      "owner": "artifact-importer",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "private-key-both-seed-expanded-mismatch"
+      ],
+      "requirement_id": "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+      "stage": "private-key-container/import",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 4
+    }
+  ],
+  "results_path": "results/extended_lint_results_deployable.jsonl",
+  "target_stages": [
+    "private-key-container/import"
+  ]
+}

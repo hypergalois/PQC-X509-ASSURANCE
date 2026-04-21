@@ -1,0 +1,213 @@
+{
+  "mode_outputs": {
+    "deployable": {
+      "certificate_spki_coverage": "results/certificate_spki_coverage_deployable.json",
+      "extended_summary": "results/extended_registry_summary_deployable.json",
+      "policy_summary": "results/policy_summary_deployable.json",
+      "private_key_coverage": "results/private_key_coverage_deployable.json"
+    },
+    "strict": {
+      "certificate_spki_coverage": "results/certificate_spki_coverage.json",
+      "extended_summary": "results/extended_registry_summary.json",
+      "policy_summary": "results/policy_summary_strict.json",
+      "private_key_coverage": "results/private_key_coverage.json"
+    }
+  },
+  "notes": [
+    "Baseline comparison remains supporting evidence, not the primary workflow output.",
+    "CA pre-issuance owns certificate/profile and SPKI/public-key gates in pkix-core.",
+    "Artifact importer owns private-key-container/import checks in pkix-core."
+  ],
+  "owners": [
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/build_libcrux_import_check.sh",
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_private_key_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/build_libcrux_import_check.sh",
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_private_key_coverage.sh --mode strict"
+        ]
+      },
+      "modes": {
+        "deployable": {
+          "blocking_requirements": [
+            "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+            "MLDSA-PRIVATE-EXPANDED-LENGTH",
+            "MLDSA-PRIVATE-SEED-LENGTH",
+            "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+            "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+            "MLKEM-PRIVATE-EXPANDED-LENGTH",
+            "MLKEM-PRIVATE-SEED-LENGTH"
+          ],
+          "warning_requirements": []
+        },
+        "strict": {
+          "blocking_requirements": [
+            "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+            "MLDSA-PRIVATE-EXPANDED-LENGTH",
+            "MLDSA-PRIVATE-SEED-LENGTH",
+            "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+            "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+            "MLKEM-PRIVATE-EXPANDED-LENGTH",
+            "MLKEM-PRIVATE-SEED-LENGTH"
+          ],
+          "warning_requirements": []
+        }
+      },
+      "note": "",
+      "owner": "artifact-importer",
+      "requirement_count": 7,
+      "stages": [
+        {
+          "actions": {
+            "deployable": {
+              "block": 7
+            },
+            "strict": {
+              "block": 7
+            }
+          },
+          "note": "Validate imported private-key containers before use.",
+          "requirement_count": 7,
+          "requirement_ids": [
+            "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+            "MLDSA-PRIVATE-EXPANDED-LENGTH",
+            "MLDSA-PRIVATE-SEED-LENGTH",
+            "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+            "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+            "MLKEM-PRIVATE-EXPANDED-LENGTH",
+            "MLKEM-PRIVATE-SEED-LENGTH"
+          ],
+          "stage": "private-key-container/import"
+        }
+      ],
+      "status": "active",
+      "title": "Artifact importer gate"
+    },
+    {
+      "commands": {
+        "deployable": [
+          "./experiments/run_extended.sh --mode deployable",
+          "./experiments/run_coverage.sh --mode deployable"
+        ],
+        "strict": [
+          "./experiments/run_extended.sh --mode strict",
+          "./experiments/run_coverage.sh --mode strict"
+        ]
+      },
+      "modes": {
+        "deployable": {
+          "blocking_requirements": [
+            "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+            "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+            "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+            "MLDSA-PKIX-HASHML-FORBIDDEN",
+            "MLDSA-SPKI-AID-PARAMS-ABSENT",
+            "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+            "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+            "MLKEM-SPKI-AID-PARAMS-ABSENT",
+            "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+          ],
+          "warning_requirements": [
+            "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+          ]
+        },
+        "strict": {
+          "blocking_requirements": [
+            "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+            "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+            "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+            "MLDSA-PKIX-HASHML-FORBIDDEN",
+            "MLDSA-SPKI-AID-PARAMS-ABSENT",
+            "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+            "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+            "MLKEM-SPKI-AID-PARAMS-ABSENT",
+            "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+            "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+          ],
+          "warning_requirements": []
+        }
+      },
+      "note": "",
+      "owner": "ca-preissuance",
+      "requirement_count": 10,
+      "stages": [
+        {
+          "actions": {
+            "deployable": {
+              "block": 4,
+              "warn": 1
+            },
+            "strict": {
+              "block": 5
+            }
+          },
+          "note": "Validate public-key structure and profile before issuance.",
+          "requirement_count": 5,
+          "requirement_ids": [
+            "MLDSA-SPKI-AID-PARAMS-ABSENT",
+            "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+            "MLKEM-SPKI-AID-PARAMS-ABSENT",
+            "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+            "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+          ],
+          "stage": "SPKI/public-key"
+        },
+        {
+          "actions": {
+            "deployable": {
+              "block": 5
+            },
+            "strict": {
+              "block": 5
+            }
+          },
+          "note": "Validate certificate semantics and PKIX policy before issuance.",
+          "requirement_count": 5,
+          "requirement_ids": [
+            "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+            "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+            "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+            "MLDSA-PKIX-HASHML-FORBIDDEN",
+            "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+          ],
+          "stage": "certificate/profile"
+        }
+      ],
+      "status": "active",
+      "title": "CA pre-issuance gate"
+    },
+    {
+      "commands": {
+        "deployable": [],
+        "strict": []
+      },
+      "modes": {
+        "deployable": {
+          "blocking_requirements": [],
+          "warning_requirements": []
+        },
+        "strict": {
+          "blocking_requirements": [],
+          "warning_requirements": []
+        }
+      },
+      "note": "No active requirements are currently assigned to runtime-consumer in pkix-core; runtime remains outside the executable scope of this artifact.",
+      "owner": "runtime-consumer",
+      "requirement_count": 0,
+      "stages": [],
+      "status": "out-of-scope",
+      "title": "Runtime consumer boundary"
+    }
+  ],
+  "profile": "pkix-core",
+  "shared_outputs": {
+    "baseline_compare": "results/baseline_vs_extended_certificate_report.json",
+    "policy_matrix": "results/policy_matrix.csv",
+    "stage_owner_summary": "results/stage_owner_summary.json"
+  }
+}

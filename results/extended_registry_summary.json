@@ -1,0 +1,248 @@
+{
+  "corpus": {
+    "by_algorithm": {
+      "ML-DSA": 24,
+      "ML-KEM": 24
+    },
+    "by_fault_family": {
+      "algorithm-policy": 1,
+      "encoding/container": 8,
+      "field-domain": 1,
+      "import-validation": 1,
+      "inter-field-consistency": 5,
+      "none": 21,
+      "profile/usage-policy": 4,
+      "size/shape": 7
+    },
+    "by_stage": {
+      "SPKI/public-key": 20,
+      "certificate/profile": 14,
+      "private-key-container/import": 14
+    },
+    "by_validity": {
+      "invalid": 27,
+      "valid": 21
+    },
+    "record_count": 48
+  },
+  "detector_status": {
+    "implemented": 17
+  },
+  "extended_lint_results": {
+    "artifact_count": 48,
+    "by_status": {
+      "block": 27,
+      "pass": 21
+    },
+    "evaluation": {
+      "blocking_artifact_count": 27,
+      "blocking_valid_artifact_count": 0,
+      "blocking_valid_artifacts": [],
+      "false_positive_artifacts": [],
+      "false_positive_count": 0,
+      "invalid_count": 27,
+      "invalid_expected_detection_met": 27,
+      "invalid_expected_detection_missed": 0,
+      "invalid_expected_detection_missed_artifacts": [],
+      "redundant_error_artifact_count": 2,
+      "redundant_error_artifacts": [
+        "der-mut-mldsa44-cert-signature-aid-null",
+        "der-mut-mldsa44-cert-signature-aid-octet-params"
+      ],
+      "unexpected_error_artifact_count": 0,
+      "unexpected_error_artifacts": [],
+      "valid_count": 21,
+      "warning_artifact_count": 0,
+      "warning_valid_artifact_count": 0,
+      "warning_valid_artifacts": []
+    }
+  },
+  "manifest_path": "corpus/manifest.jsonl",
+  "mode": "strict",
+  "policy_summary": {
+    "blocking_requirements": [
+      "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+      "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "MLDSA-PKIX-HASHML-FORBIDDEN",
+      "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+      "MLDSA-PRIVATE-EXPANDED-LENGTH",
+      "MLDSA-PRIVATE-SEED-LENGTH",
+      "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+      "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+      "MLKEM-PRIVATE-EXPANDED-LENGTH",
+      "MLKEM-PRIVATE-SEED-LENGTH",
+      "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+      "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+    ],
+    "by_action": {
+      "block": 17
+    },
+    "by_algorithm": {
+      "ML-DSA": 9,
+      "ML-KEM": 8
+    },
+    "by_constructibility": {
+      "covered": 17
+    },
+    "by_detector_kind": {
+      "import-crypto": 3,
+      "policy": 4,
+      "structural": 10
+    },
+    "by_normative_strength": {
+      "must": 15,
+      "should": 2
+    },
+    "by_owner": {
+      "artifact-importer": 7,
+      "ca-preissuance": 10
+    },
+    "by_stage": {
+      "SPKI/public-key": 5,
+      "certificate/profile": 5,
+      "private-key-container/import": 7
+    },
+    "ignored_requirements": [],
+    "mode": "strict",
+    "profile": "pkix-core",
+    "requirement_count": 17,
+    "warning_requirements": []
+  },
+  "profile": "pkix-core",
+  "registry": {
+    "by_algorithm": {
+      "ML-DSA": 9,
+      "ML-KEM": 8
+    },
+    "by_baseline_status": {
+      "covered-by-external-lint-path": 1,
+      "covered-for-encoded-key": 1,
+      "covered-for-prohibited-bits": 1,
+      "gap": 8,
+      "gap-or-unverified": 1,
+      "incomplete": 2,
+      "partial": 3
+    },
+    "by_constructibility": {
+      "covered": 17
+    },
+    "by_detector_kind": {
+      "import-crypto": 3,
+      "policy": 4,
+      "structural": 10
+    },
+    "by_fault_family": {
+      "algorithm-policy": 1,
+      "encoding/container": 3,
+      "field-domain": 1,
+      "import-validation": 1,
+      "inter-field-consistency": 2,
+      "profile/usage-policy": 3,
+      "size/shape": 6
+    },
+    "by_gate_pack": {
+      "ca-certificate-profile": 5,
+      "ca-spki-public-key": 5,
+      "import-private-key": 7
+    },
+    "by_normative_strength": {
+      "must": 15,
+      "should": 2
+    },
+    "by_owner": {
+      "artifact-importer": 7,
+      "ca-preissuance": 10
+    },
+    "by_profile": {
+      "pkix-core": 17
+    },
+    "by_severity": {
+      "error": 17
+    },
+    "by_stage": {
+      "SPKI/public-key": 5,
+      "certificate/profile": 5,
+      "private-key-container/import": 7
+    },
+    "requirement_count": 17,
+    "schema_version": 2
+  },
+  "registry_path": "requirements.json",
+  "stage_owner_summary": {
+    "by_owner": {
+      "artifact-importer": 7,
+      "ca-preissuance": 10
+    },
+    "by_stage": {
+      "SPKI/public-key": 5,
+      "certificate/profile": 5,
+      "private-key-container/import": 7
+    },
+    "profile": "pkix-core",
+    "requirement_count": 17,
+    "rows": [
+      {
+        "deployable_action_counts": {
+          "block": 4,
+          "warn": 1
+        },
+        "owner": "ca-preissuance",
+        "requirement_count": 5,
+        "requirement_ids": [
+          "MLDSA-SPKI-AID-PARAMS-ABSENT",
+          "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+          "MLKEM-SPKI-AID-PARAMS-ABSENT",
+          "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+          "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+        ],
+        "stage": "SPKI/public-key",
+        "strict_action_counts": {
+          "block": 5
+        }
+      },
+      {
+        "deployable_action_counts": {
+          "block": 5
+        },
+        "owner": "ca-preissuance",
+        "requirement_count": 5,
+        "requirement_ids": [
+          "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+          "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+          "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+          "MLDSA-PKIX-HASHML-FORBIDDEN",
+          "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+        ],
+        "stage": "certificate/profile",
+        "strict_action_counts": {
+          "block": 5
+        }
+      },
+      {
+        "deployable_action_counts": {
+          "block": 7
+        },
+        "owner": "artifact-importer",
+        "requirement_count": 7,
+        "requirement_ids": [
+          "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+          "MLDSA-PRIVATE-EXPANDED-LENGTH",
+          "MLDSA-PRIVATE-SEED-LENGTH",
+          "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+          "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+          "MLKEM-PRIVATE-EXPANDED-LENGTH",
+          "MLKEM-PRIVATE-SEED-LENGTH"
+        ],
+        "stage": "private-key-container/import",
+        "strict_action_counts": {
+          "block": 7
+        }
+      }
+    ]
+  }
+}

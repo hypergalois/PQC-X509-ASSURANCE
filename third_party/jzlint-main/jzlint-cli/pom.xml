@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.mtg</groupId>
+    <artifactId>jzlint-cli</artifactId>
+    <name>jzlint-cli</name>
+    <version>2.0.1</version>
+    <description>A command-line interface tool to lint certificates, revocation lists, and OCSP responses with JZLint.</description>
+    <url>https://github.com/MTG-AG/jzlint</url>
+    <organization>
+        <name>MTG AG</name>
+        <url>https://www.mtg.de</url>
+    </organization>
+
+    <parent>
+        <groupId>de.mtg</groupId>
+        <artifactId>jzlint-parent</artifactId>
+        <version>2.0.1</version>
+    </parent>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>MTG AG</id>
+            <name>MTG AG</name>
+            <email>contact@mtg.de</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/MTG-AG/jzlint.git</connection>
+        <url>https://github.com/MTG-AG/jzlint.git</url>
+        <developerConnection>scm:git:https://github.com/MTG-AG/jzlint.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>de.mtg</groupId>
+            <artifactId>jzlint</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.mtg</groupId>
+            <artifactId>jlint-ext</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.mtg</groupId>
+            <artifactId>jlint-issuer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.mtg</groupId>
+            <artifactId>jlint-ocsp</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.mtg</groupId>
+            <artifactId>jlint-pqc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bcprov.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>${picocli.version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

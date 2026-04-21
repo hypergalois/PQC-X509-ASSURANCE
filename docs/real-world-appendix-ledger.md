@@ -1,0 +1,274 @@
+# Appendix Corpus Provenance
+
+This appendix records the public corpus used to complement the
+controlled evaluation. It is a reproducible subset of public repository
+artifacts selected to add limited external-validity evidence within the
+scope of the paper.
+
+## Snapshot
+
+- Source repository: https://github.com/IETF-Hackathon/pqc-certificates
+- Local snapshot: frozen manifest metadata only (no live pqc-certificates snapshot bundled)
+- Commit: `6a844ddb7e2fc2126371c5d4a1efe72f3a6d930b`
+- Access date frozen: `2026-04-15`
+- License locator: `third_party/pqc-certificates-main/license.txt`
+
+## Inclusion Rules
+
+- Include only final R5 public artifacts with final ML-KEM/ML-DSA OIDs.
+- Keep the appendix small enough to audit manually.
+- Prefer artifacts that exercise either full certificate/profile coverage or
+  private-key container import coverage across a second implementation.
+
+## Explicit Exclusions
+
+- `historical_artifacts/` draft-era material.
+- CMS/CMP payloads and ciphertext-based protocol artifacts.
+- Hybrid/composite/chameleon/catalyst certificates.
+- SLH-DSA families, which are outside the current paper scope.
+- HashML-DSA and hash-SLH-DSA families as executable appendix cases for now,
+  because the current core paper artifact is scoped to ML-KEM plus pure
+  ML-DSA, and the HashML-DSA prohibition remains a planned detector rather
+  than a closed experimental claim.
+
+## Source Archives
+
+- `providers/bc/artifacts_certs_r5.zip` sha256 `eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96`
+- `providers/ossl35/artifacts_certs_r5.zip` sha256 `5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54`
+
+## Selected Artifacts
+
+- `appendix-ossl35-mldsa44-ta-cert`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-44`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_44_ta.der`
+  - file sha256: `6a836af9561a525e8261e8e9e903e6efcc6b0376aab9d8cc59c8204823094a6b`
+  - selection reason: final-R5 pure ML-DSA trust anchor from a widely used public implementation
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-44-2.16.840.1.101.3.4.3.17_ta.der`
+- `appendix-ossl35-mldsa65-ta-cert`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-65`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_65_ta.der`
+  - file sha256: `b97fb3b79360e717cb0c1b25970373ff2ddd50743a847810078999b7131d184a`
+  - selection reason: final-R5 pure ML-DSA trust anchor from a widely used public implementation
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-65-2.16.840.1.101.3.4.3.18_ta.der`
+- `appendix-ossl35-mldsa87-ta-cert`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-87`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_87_ta.der`
+  - file sha256: `c10f2e4945c2df83474c4b159886a39359e7e3ff752302b75dac1b6e1e99117f`
+  - selection reason: final-R5 pure ML-DSA trust anchor from a widely used public implementation
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-87-2.16.840.1.101.3.4.3.19_ta.der`
+- `appendix-ossl35-mlkem512-ee-cert`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-512`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_512_ee.der`
+  - file sha256: `12d1812cddf858e8413c6df3149cfe8d1ccdcc0d100ee80a96b9750edd34c71c`
+  - selection reason: final-R5 pure ML-KEM end-entity certificate covering the lowest NIST parameter set
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-512-2.16.840.1.101.3.4.4.1_ee.der`
+- `appendix-ossl35-mlkem768-ee-cert`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-768`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_768_ee.der`
+  - file sha256: `102b790781263dcaf5218a697b3afc991db20580fcd9ad04306b6f5ae0ff0512`
+  - selection reason: final-R5 pure ML-KEM end-entity certificate covering the practical default security level
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-768-2.16.840.1.101.3.4.4.2_ee.der`
+- `appendix-ossl35-mlkem1024-ee-cert`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-1024`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_1024_ee.der`
+  - file sha256: `314386192b210b6d115633ce34297d6ba8b5c8ed1d338b41300969b4bb3fa132`
+  - selection reason: final-R5 pure ML-KEM end-entity certificate covering the highest NIST parameter set
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-1024-2.16.840.1.101.3.4.4.3_ee.der`
+- `appendix-bc-mldsa65-ta-cert`
+  - provider: `bc`
+  - algorithm: `ML-DSA` / `ML-DSA-65`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_dsa_65_ta.der`
+  - file sha256: `a184f62cbfa477b54df83db964a4f6c2c7a0f3530c1895ed0376d31fd8e3d62b`
+  - selection reason: cross-provider pure ML-DSA certificate matching the private-key container variants selected for import-validation
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-dsa-65-2.16.840.1.101.3.4.3.18_ta.der`
+- `appendix-bc-mldsa65-seed-key`
+  - provider: `bc`
+  - algorithm: `ML-DSA` / `ML-DSA-65`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_dsa_65_seed_priv.der`
+  - file sha256: `aaf15a453956bb1b1a4f80e2911a5850c612d554a984e3caaa91f8625e13faac`
+  - selection reason: cross-provider seed-only ML-DSA private key for import-format external validity
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-dsa-65-2.16.840.1.101.3.4.3.18_seed_priv.der`
+- `appendix-bc-mldsa65-expanded-key`
+  - provider: `bc`
+  - algorithm: `ML-DSA` / `ML-DSA-65`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_dsa_65_expandedkey_priv.der`
+  - file sha256: `ddb3f228244aad776a32b1a98eb52f105e5f0a8f764e9e09abfb53eb14eb59a4`
+  - selection reason: cross-provider expanded-key ML-DSA private key for import-format external validity
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-dsa-65-2.16.840.1.101.3.4.3.18_expandedkey_priv.der`
+- `appendix-bc-mldsa65-both-key`
+  - provider: `bc`
+  - algorithm: `ML-DSA` / `ML-DSA-65`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_dsa_65_both_priv.der`
+  - file sha256: `69bc34c8da446d6c12c9e384ee0cc83de7eda6926281662d87f30c3b13414c2d`
+  - selection reason: cross-provider both-form ML-DSA private key exercising seed-expanded consistency parsing
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-dsa-65-2.16.840.1.101.3.4.3.18_both_priv.der`
+- `appendix-bc-mlkem768-ee-cert`
+  - provider: `bc`
+  - algorithm: `ML-KEM` / `ML-KEM-768`
+  - artifact type: `certificate`
+  - stage: `certificate/profile`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_kem_768_ee.der`
+  - file sha256: `a1650d5768c467993b9c61ac5b1eceb1ad148703e5a3ef54a3dee6eda11afe76`
+  - selection reason: cross-provider pure ML-KEM certificate matching the private-key container variants selected for import-validation
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-kem-768-2.16.840.1.101.3.4.4.2_ee.der`
+- `appendix-bc-mlkem768-seed-key`
+  - provider: `bc`
+  - algorithm: `ML-KEM` / `ML-KEM-768`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_kem_768_seed_priv.der`
+  - file sha256: `0e5b9711132effc4514a89ce2997decc8af232afadbc181dd5a19f47c7c3d306`
+  - selection reason: cross-provider seed-only ML-KEM private key for import-format external validity
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-kem-768-2.16.840.1.101.3.4.4.2_seed_priv.der`
+- `appendix-bc-mlkem768-expanded-key`
+  - provider: `bc`
+  - algorithm: `ML-KEM` / `ML-KEM-768`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_kem_768_expandedkey_priv.der`
+  - file sha256: `2b85d452f46b89228fa7c0e3a0d1af05d48538aa07f5da153aad302e7c578ee0`
+  - selection reason: cross-provider expanded-key ML-KEM private key exercising hash-check parsing on non-OpenSSL material
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-kem-768-2.16.840.1.101.3.4.4.2_expandedkey_priv.der`
+- `appendix-bc-mlkem768-both-key`
+  - provider: `bc`
+  - algorithm: `ML-KEM` / `ML-KEM-768`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/bc/bc_ml_kem_768_both_priv.der`
+  - file sha256: `3b648d376fca663effbecfeeb2fead94774c903c9cf5a6b371ba2cce22da0eef`
+  - selection reason: cross-provider both-form ML-KEM private key exercising seed-expanded consistency and hash-check parsing
+  - source entry: `zip-sha256:eb4cba38bee8f90ddd75e65f7941e95bb4d5f7c6fe8c9455257cfcf604be2e96` / `member:artifacts/ml-kem-768-2.16.840.1.101.3.4.4.2_both_priv.der`
+- `appendix-ossl35-mldsa44-seed-key`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-44`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_44_seed_priv.der`
+  - file sha256: `1de7e4c622e17eeacaa2654596f4fb1f152a2251717d8d27508671e9ac7085da`
+  - selection reason: low-parameter pure ML-DSA seed-only private key from ossl35 to cover importer behavior at the low end
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-44-2.16.840.1.101.3.4.3.17_seed_priv.der`
+- `appendix-ossl35-mldsa44-expanded-key`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-44`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_44_expandedkey_priv.der`
+  - file sha256: `5d68f0da964580e0d9e735ceed5dfbecdbdcac6685793eca3df53242de18871c`
+  - selection reason: low-parameter pure ML-DSA expanded-key private key from ossl35 to complement seed-only import coverage
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-44-2.16.840.1.101.3.4.3.17_expandedkey_priv.der`
+- `appendix-ossl35-mldsa44-both-key`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-44`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_44_both_priv.der`
+  - file sha256: `92b584bc775144ef836536edd7beb9dacae5b15c4fbc34a3731e7d56a0633bb4`
+  - selection reason: low-parameter pure ML-DSA both-form private key from ossl35 to cover seed-expanded consistency parsing
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-44-2.16.840.1.101.3.4.3.17_both_priv.der`
+- `appendix-ossl35-mldsa87-seed-key`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-87`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_87_seed_priv.der`
+  - file sha256: `c8bbc4948c6450abcd2c918343498ea2588b1c0f11c32da2ea290052f07f8a5e`
+  - selection reason: high-parameter pure ML-DSA seed-only private key from ossl35 to show importer coverage at the high end
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-87-2.16.840.1.101.3.4.3.19_seed_priv.der`
+- `appendix-ossl35-mldsa87-expanded-key`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-87`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_87_expandedkey_priv.der`
+  - file sha256: `34f76aa36e390ddd804c2a52d185913ad4267ee016ad2fcd4eb4c54fce5b3a62`
+  - selection reason: high-parameter pure ML-DSA expanded-key private key from ossl35 to close representation coverage at the high end
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-87-2.16.840.1.101.3.4.3.19_expandedkey_priv.der`
+- `appendix-ossl35-mldsa87-both-key`
+  - provider: `ossl35`
+  - algorithm: `ML-DSA` / `ML-DSA-87`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_dsa_87_both_priv.der`
+  - file sha256: `6fdfde535a724ed1c29469d296fe8eba99138edc5a7078c27910155699e5597c`
+  - selection reason: high-parameter pure ML-DSA both-form private key from ossl35 to pair consistency checks with the highest parameter set
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-dsa-87-2.16.840.1.101.3.4.3.19_both_priv.der`
+- `appendix-ossl35-mlkem512-seed-key`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-512`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_512_seed_priv.der`
+  - file sha256: `9cdcd878f81cafbc0cc19315d87b687435735226ed600529f981988ab0e16e48`
+  - selection reason: low-parameter pure ML-KEM seed-only private key from ossl35 to widen importer coverage beyond the mid-level parameter set
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-512-2.16.840.1.101.3.4.4.1_seed_priv.der`
+- `appendix-ossl35-mlkem512-expanded-key`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-512`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_512_expandedkey_priv.der`
+  - file sha256: `02b1b495482eba418595737d06cc4d1c3f75cee2dbb7317826452c0317d15662`
+  - selection reason: low-parameter pure ML-KEM expanded-key private key from ossl35 to exercise hash-check parsing outside the default set
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-512-2.16.840.1.101.3.4.4.1_expandedkey_priv.der`
+- `appendix-ossl35-mlkem512-both-key`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-512`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_512_both_priv.der`
+  - file sha256: `3424734abe647ba924bcd21aaf847da9a971f07d05702e2ac96b31434710b3ab`
+  - selection reason: low-parameter pure ML-KEM both-form private key from ossl35 to cover seed-expanded consistency at the low end
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-512-2.16.840.1.101.3.4.4.1_both_priv.der`
+- `appendix-ossl35-mlkem1024-seed-key`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-1024`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_1024_seed_priv.der`
+  - file sha256: `1fad0fe975c9f47002d82873d6650bda1a886524ce6e5fa1fef266e5aaf41ecf`
+  - selection reason: high-parameter pure ML-KEM seed-only private key from ossl35 to complete parameter-set coverage for importer behavior
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-1024-2.16.840.1.101.3.4.4.3_seed_priv.der`
+- `appendix-ossl35-mlkem1024-expanded-key`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-1024`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_1024_expandedkey_priv.der`
+  - file sha256: `463f2de17c412e30b6b33dcc552e8d0b66a32dd4b9e88639a7b6c68e984371e6`
+  - selection reason: high-parameter pure ML-KEM expanded-key private key from ossl35 to extend hash-check and sizing coverage to the high end
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-1024-2.16.840.1.101.3.4.4.3_expandedkey_priv.der`
+- `appendix-ossl35-mlkem1024-both-key`
+  - provider: `ossl35`
+  - algorithm: `ML-KEM` / `ML-KEM-1024`
+  - artifact type: `private-key-container`
+  - stage: `private-key-container/import`
+  - extracted file: `corpus/appendix/public_repo/ossl35/ossl35_ml_kem_1024_both_priv.der`
+  - file sha256: `89ae97974b5ee52f62ffbff0384af2397154d0f55f6caae000f507edab2a7ae8`
+  - selection reason: high-parameter pure ML-KEM both-form private key from ossl35 to combine consistency and hash-check coverage at the high end
+  - source entry: `zip-sha256:5836cbc8c8fa581067016fc89600b91947f8a77215211cc0c15bf2c96239cb54` / `member:ml-kem-1024-2.16.840.1.101.3.4.4.3_both_priv.der`

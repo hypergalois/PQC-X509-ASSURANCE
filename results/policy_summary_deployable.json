@@ -1,0 +1,56 @@
+{
+  "blocking_requirements": [
+    "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+    "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+    "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+    "MLDSA-PKIX-HASHML-FORBIDDEN",
+    "MLDSA-PRIVATE-BOTH-CONSISTENCY",
+    "MLDSA-PRIVATE-EXPANDED-LENGTH",
+    "MLDSA-PRIVATE-SEED-LENGTH",
+    "MLDSA-SPKI-AID-PARAMS-ABSENT",
+    "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+    "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+    "MLKEM-PRIVATE-BOTH-CONSISTENCY",
+    "MLKEM-PRIVATE-EXPANDED-HASH-CHECK",
+    "MLKEM-PRIVATE-EXPANDED-LENGTH",
+    "MLKEM-PRIVATE-SEED-LENGTH",
+    "MLKEM-SPKI-AID-PARAMS-ABSENT",
+    "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+  ],
+  "by_action": {
+    "block": 16,
+    "warn": 1
+  },
+  "by_algorithm": {
+    "ML-DSA": 9,
+    "ML-KEM": 8
+  },
+  "by_constructibility": {
+    "covered": 17
+  },
+  "by_detector_kind": {
+    "import-crypto": 3,
+    "policy": 4,
+    "structural": 10
+  },
+  "by_normative_strength": {
+    "must": 15,
+    "should": 2
+  },
+  "by_owner": {
+    "artifact-importer": 7,
+    "ca-preissuance": 10
+  },
+  "by_stage": {
+    "SPKI/public-key": 5,
+    "certificate/profile": 5,
+    "private-key-container/import": 7
+  },
+  "ignored_requirements": [],
+  "mode": "deployable",
+  "profile": "pkix-core",
+  "requirement_count": 17,
+  "warning_requirements": [
+    "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+  ]
+}

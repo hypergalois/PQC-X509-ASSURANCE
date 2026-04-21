@@ -1,0 +1,943 @@
+{
+  "by_coverage_status": {
+    "covered-block": 9,
+    "covered-warn": 1
+  },
+  "manifest_path": "corpus/manifest.jsonl",
+  "mode": "deployable",
+  "mutation_detection": [
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "openssl-mut-mlkem768-keyusage-digital-signature-cert",
+      "blocking_requirement_ids": [
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "detected_requirements": [
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "first_expected_requirement": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "openssl-mut-mldsa65-keyusage-key-encipherment-cert",
+      "blocking_requirement_ids": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT"
+      ],
+      "detected_requirements": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT"
+      ],
+      "error_count": 2,
+      "expected_detection": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "first_expected_requirement": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 2,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-spki-aid-null-pub",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-spki-aid-octet-params-pub",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa65-spki-aid-null-pub",
+      "blocking_requirement_ids": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa65-spki-aid-octet-params-pub",
+      "blocking_requirement_ids": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-spki-payload-truncated-pub",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_expected_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa87-spki-payload-2602-pub",
+      "blocking_requirement_ids": [
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "first_expected_requirement": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem512-spki-oid-swapped-to-mlkem768-pub",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_expected_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-spki-oid-swapped-to-mldsa65-pub",
+      "blocking_requirement_ids": [
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "first_expected_requirement": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mldsa65-spki-oid-swapped-to-mlkem768-pub",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_expected_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-spki-unreduced-byteencode12-pub",
+      "blocking_requirement_ids": [],
+      "detected_requirements": [
+        "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "warn",
+      "first_blocking_requirement": null,
+      "first_expected_requirement": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+      "first_warning_requirement": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "warn",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": [
+        "MLKEM-SPKI-ENCODE-DECODE-IDENTITY"
+      ]
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-cert-spki-aid-null",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-cert-spki-aid-octet-params",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-cert-spki-payload-truncated",
+      "blocking_requirement_ids": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "detected_requirements": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-SPKI-PUBLIC-KEY-LENGTH"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_expected_requirement": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "SPKI/public-key",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-cert-signature-aid-null",
+      "blocking_requirement_ids": [
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 2,
+      "expected_detection": [
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 1,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-cert-signature-aid-octet-params",
+      "blocking_requirement_ids": [
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT"
+      ],
+      "detected_requirements": [
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT"
+      ],
+      "error_count": 2,
+      "expected_detection": [
+        "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "first_expected_requirement": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 1,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa44-cert-signature-hashmldsa44",
+      "blocking_requirement_ids": [
+        "MLDSA-PKIX-HASHML-FORBIDDEN"
+      ],
+      "detected_requirements": [
+        "MLDSA-PKIX-HASHML-FORBIDDEN"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-PKIX-HASHML-FORBIDDEN"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-PKIX-HASHML-FORBIDDEN",
+      "first_expected_requirement": "MLDSA-PKIX-HASHML-FORBIDDEN",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-KEM",
+      "artifact_id": "der-mut-mlkem768-cert-keyusage-empty",
+      "blocking_requirement_ids": [
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "detected_requirements": [
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "first_expected_requirement": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    },
+    {
+      "algorithm": "ML-DSA",
+      "artifact_id": "der-mut-mldsa65-cert-keyusage-empty",
+      "blocking_requirement_ids": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT"
+      ],
+      "detected_requirements": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT"
+      ],
+      "error_count": 1,
+      "expected_detection": [
+        "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT"
+      ],
+      "expected_detection_met": true,
+      "final_disposition": "block",
+      "first_blocking_requirement": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "first_expected_requirement": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "first_warning_requirement": null,
+      "ignored_requirement_ids": [],
+      "missing_expected_requirements": [],
+      "redundant_error_count": 0,
+      "stage": "certificate/profile",
+      "status": "block",
+      "unexpected_error_requirements": [],
+      "unique_error_count": 1,
+      "warning_requirement_ids": []
+    }
+  ],
+  "mutation_detection_summary": {
+    "by_final_disposition": {
+      "block": 19,
+      "warn": 1
+    },
+    "expected_detection_met_count": 20,
+    "expected_detection_missed_count": 0,
+    "invalid_artifact_count": 20,
+    "redundant_error_artifact_count": 2,
+    "unexpected_error_artifact_count": 0
+  },
+  "open_detector_gaps": [],
+  "profile": "pkix-core",
+  "registry_path": "requirements.json",
+  "requirement_count": 10,
+  "requirements": [
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.algorithm_identifier.parameters_absent",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "encoding/container",
+      "mode": "deployable",
+      "negative_artifact_count": 4,
+      "negative_artifacts": [
+        "der-mut-mlkem768-cert-spki-aid-null",
+        "der-mut-mlkem768-cert-spki-aid-octet-params",
+        "der-mut-mlkem768-spki-aid-null-pub",
+        "der-mut-mlkem768-spki-aid-octet-params-pub"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "aid-parameters-null",
+        "aid-parameters-present-non-null"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "aid-oid-family-swap",
+        "aid-parameters-null",
+        "aid-parameters-present-non-null"
+      ],
+      "requirement_id": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+      "stage": "SPKI/public-key",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "aid-oid-family-swap"
+      ],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "certificate",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.key_usage.mlkem_key_encipherment_only",
+      "detector_kind": "policy",
+      "detector_status": "implemented",
+      "fault_family": "profile/usage-policy",
+      "mode": "deployable",
+      "negative_artifact_count": 2,
+      "negative_artifacts": [
+        "der-mut-mlkem768-cert-keyusage-empty",
+        "openssl-mut-mlkem768-keyusage-digital-signature-cert"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "keyusage-empty",
+        "keyusage-extra-prohibited-bit",
+        "keyusage-missing-key-encipherment"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "keyusage-empty",
+        "keyusage-extra-prohibited-bit",
+        "keyusage-missing-key-encipherment"
+      ],
+      "requirement_id": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+      "stage": "certificate/profile",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.spki.payload_length",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "size/shape",
+      "mode": "deployable",
+      "negative_artifact_count": 4,
+      "negative_artifacts": [
+        "der-mut-mldsa65-spki-oid-swapped-to-mlkem768-pub",
+        "der-mut-mlkem512-spki-oid-swapped-to-mlkem768-pub",
+        "der-mut-mlkem768-cert-spki-payload-truncated",
+        "der-mut-mlkem768-spki-payload-truncated-pub"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "aid-oid-family-swap",
+        "spki-oid-length-mismatch",
+        "spki-public-key-truncate"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "spki-oid-length-mismatch",
+        "spki-public-key-extend",
+        "spki-public-key-truncate"
+      ],
+      "requirement_id": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+      "stage": "SPKI/public-key",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "spki-public-key-extend"
+      ],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "warn",
+      "algorithm": "ML-KEM",
+      "artifact_type": "spki",
+      "constructibility": "covered",
+      "coverage_status": "covered-warn",
+      "deployable_action": "warn",
+      "detector": "detector.mlkem.encode_decode_identity",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "field-domain",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mlkem768-spki-unreduced-byteencode12-pub"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "mlkem-unreduced-byteencode12-value"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "mlkem-unreduced-byteencode12-value"
+      ],
+      "requirement_id": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+      "stage": "SPKI/public-key",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 3
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "spki",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.algorithm_identifier.parameters_absent",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "encoding/container",
+      "mode": "deployable",
+      "negative_artifact_count": 2,
+      "negative_artifacts": [
+        "der-mut-mldsa65-spki-aid-null-pub",
+        "der-mut-mldsa65-spki-aid-octet-params-pub"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "aid-parameters-null",
+        "aid-parameters-present-non-null"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "aid-oid-family-swap",
+        "aid-parameters-null",
+        "aid-parameters-present-non-null"
+      ],
+      "requirement_id": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+      "stage": "SPKI/public-key",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "aid-oid-family-swap"
+      ],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.signature_algorithm.mldsa_parameters_absent",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "encoding/container",
+      "mode": "deployable",
+      "negative_artifact_count": 2,
+      "negative_artifacts": [
+        "der-mut-mldsa44-cert-signature-aid-null",
+        "der-mut-mldsa44-cert-signature-aid-octet-params"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "signature-aid-parameters-null",
+        "signature-aid-parameters-present-non-null"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "signature-aid-oid-family-swap",
+        "signature-aid-parameters-null",
+        "signature-aid-parameters-present-non-null"
+      ],
+      "requirement_id": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+      "stage": "certificate/profile",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "signature-aid-oid-family-swap"
+      ],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.key_usage.mldsa_requires_signing_usage",
+      "detector_kind": "policy",
+      "detector_status": "implemented",
+      "fault_family": "profile/usage-policy",
+      "mode": "deployable",
+      "negative_artifact_count": 2,
+      "negative_artifacts": [
+        "der-mut-mldsa65-cert-keyusage-empty",
+        "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "keyusage-empty",
+        "keyusage-key-encipherment",
+        "keyusage-missing-signature-bit"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "keyusage-empty",
+        "keyusage-missing-signature-bit"
+      ],
+      "requirement_id": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+      "stage": "certificate/profile",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.key_usage.mldsa_forbid_encipherment_agreement",
+      "detector_kind": "policy",
+      "detector_status": "implemented",
+      "fault_family": "profile/usage-policy",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "keyusage-key-encipherment",
+        "keyusage-missing-signature-bit"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "keyusage-data-encipherment",
+        "keyusage-decipher-only",
+        "keyusage-encipher-only",
+        "keyusage-key-agreement",
+        "keyusage-key-encipherment"
+      ],
+      "requirement_id": "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+      "stage": "certificate/profile",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "keyusage-data-encipherment",
+        "keyusage-decipher-only",
+        "keyusage-encipher-only",
+        "keyusage-key-agreement"
+      ],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "spki",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.spki.payload_length",
+      "detector_kind": "structural",
+      "detector_status": "implemented",
+      "fault_family": "size/shape",
+      "mode": "deployable",
+      "negative_artifact_count": 2,
+      "negative_artifacts": [
+        "der-mut-mldsa44-spki-oid-swapped-to-mldsa65-pub",
+        "der-mut-mldsa87-spki-payload-2602-pub"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "rfc9881-appendix-size-transcription-2602",
+        "spki-oid-length-mismatch",
+        "spki-public-key-extend"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "rfc9881-appendix-size-transcription-2602",
+        "spki-oid-length-mismatch",
+        "spki-public-key-extend",
+        "spki-public-key-truncate"
+      ],
+      "requirement_id": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+      "stage": "SPKI/public-key",
+      "strict_action": "block",
+      "uncovered_mutation_families": [
+        "spki-public-key-truncate"
+      ],
+      "valid_pass_artifact_count": 4
+    },
+    {
+      "active_action": "block",
+      "algorithm": "ML-DSA",
+      "artifact_type": "certificate",
+      "constructibility": "covered",
+      "coverage_status": "covered-block",
+      "deployable_action": "block",
+      "detector": "detector.algorithm_policy.hashml_dsa_forbidden",
+      "detector_kind": "policy",
+      "detector_status": "implemented",
+      "fault_family": "algorithm-policy",
+      "mode": "deployable",
+      "negative_artifact_count": 1,
+      "negative_artifacts": [
+        "der-mut-mldsa44-cert-signature-hashmldsa44"
+      ],
+      "normative_strength": "must",
+      "observed_mutation_families": [
+        "hashml-dsa-pkix-context",
+        "hashml-dsa-signature-oid-in-pkix-cert"
+      ],
+      "owner": "ca-preissuance",
+      "profile": "pkix-core",
+      "registry_mutation_families": [
+        "hashml-dsa-pkix-context",
+        "hashml-dsa-signature-oid-in-pkix-cert"
+      ],
+      "requirement_id": "MLDSA-PKIX-HASHML-FORBIDDEN",
+      "stage": "certificate/profile",
+      "strict_action": "block",
+      "uncovered_mutation_families": [],
+      "valid_pass_artifact_count": 4
+    }
+  ],
+  "results_path": "results/extended_lint_results_deployable.jsonl",
+  "target_stages": [
+    "SPKI/public-key",
+    "certificate/profile"
+  ]
+}

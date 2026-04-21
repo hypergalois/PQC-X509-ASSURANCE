@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pqc-x509-assurance"
+version = "0.1.0"
+description = "Registry-driven operational post-quantum X.509 assurance tooling for ML-KEM and ML-DSA."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = [
+  "post-quantum cryptography",
+  "x509",
+  "pkix",
+  "ml-kem",
+  "ml-dsa",
+  "certificate linting",
+  "artifact assurance",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Security :: Cryptography",
+]
+dependencies = []
+
+[project.scripts]
+pqc-x509-registry = "pqc_x509_assurance.run_extended:main"
+pqc-x509-coverage = "pqc_x509_assurance.coverage_report:main"
+pqc-x509-baseline-compare = "pqc_x509_assurance.baseline_compare:main"
+pqc-x509-cross-tool = "pqc_x509_assurance.cross_tool_behavior:main"
+pqc-x509-operator-gates = "pqc_x509_assurance.operator_gate_packs:main"
+pqc-x509-reference-workflow = "pqc_x509_assurance.reference_workflow:main"
+pqc-x509-real-world-appendix = "pqc_x509_assurance.real_world_appendix:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

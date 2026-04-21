@@ -1,0 +1,7 @@
+[mlkem_ee]
+basicConstraints = critical,CA:false
+keyUsage = critical,keyEncipherment
+
+[mlkem_bad_digital_signature]
+basicConstraints = critical,CA:false
+keyUsage = critical,digitalSignature

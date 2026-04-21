@@ -1,0 +1,8 @@
+[package]
+name = "libcrux-import-check"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libcrux-kem = { path = "../../third_party/libcrux-main/libcrux-kem" }
+libcrux-ml-dsa = { path = "../../third_party/libcrux-main/libcrux-ml-dsa" }

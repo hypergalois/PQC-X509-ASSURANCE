@@ -1,0 +1,329 @@
+{
+  "baseline": {
+    "artifact_count": 17,
+    "artifacts_with_fatal_lints": 8,
+    "by_status": {
+      "error": 6,
+      "fatal": 5,
+      "pass": 6
+    },
+    "false_positive_artifacts": [],
+    "false_positive_count": 0,
+    "fatal_invalid_artifact_count": 5,
+    "fatal_invalid_artifacts": [
+      "openssl-mut-mlkem768-keyusage-digital-signature-cert",
+      "der-mut-mlkem768-cert-spki-aid-null",
+      "der-mut-mlkem768-cert-spki-aid-octet-params",
+      "der-mut-mlkem768-cert-spki-payload-truncated",
+      "der-mut-mlkem768-cert-keyusage-empty"
+    ],
+    "fatal_valid_artifact_count": 3,
+    "fatal_valid_artifacts": [
+      "openssl-mlkem512-ee-cert",
+      "openssl-mlkem768-ee-cert",
+      "openssl-mlkem1024-ee-cert"
+    ],
+    "first_useful_hit_artifacts": [
+      "openssl-mut-mlkem768-keyusage-digital-signature-cert",
+      "openssl-mut-mldsa65-keyusage-key-encipherment-cert",
+      "der-mut-mlkem768-cert-spki-aid-null",
+      "der-mut-mlkem768-cert-spki-aid-octet-params",
+      "der-mut-mldsa44-cert-signature-aid-null",
+      "der-mut-mldsa44-cert-signature-aid-octet-params"
+    ],
+    "first_useful_hit_count": 6,
+    "invalid_count": 10,
+    "invalid_expected_detection_met": 5,
+    "invalid_expected_detection_missed": 5,
+    "invalid_expected_detection_missed_artifacts": [
+      "openssl-mut-mldsa65-keyusage-key-encipherment-cert",
+      "der-mut-mlkem768-cert-spki-payload-truncated",
+      "der-mut-mldsa44-cert-signature-hashmldsa44",
+      "der-mut-mlkem768-cert-keyusage-empty",
+      "der-mut-mldsa65-cert-keyusage-empty"
+    ],
+    "latency_ms": {
+      "max": 715.607,
+      "mean": 646.212,
+      "median": 642.795,
+      "p95": 715.607
+    },
+    "redundant_error_artifact_count": 0,
+    "redundant_error_artifacts": [],
+    "unexpected_error_artifact_count": 0,
+    "unexpected_error_artifacts": [],
+    "valid_count": 7
+  },
+  "comparison": {
+    "baseline_fatal_extended_clean_artifacts": [
+      "openssl-mlkem512-ee-cert",
+      "openssl-mlkem768-ee-cert",
+      "openssl-mlkem1024-ee-cert",
+      "openssl-mut-mlkem768-keyusage-digital-signature-cert",
+      "der-mut-mlkem768-cert-spki-aid-null",
+      "der-mut-mlkem768-cert-spki-aid-octet-params",
+      "der-mut-mlkem768-cert-spki-payload-truncated",
+      "der-mut-mlkem768-cert-keyusage-empty"
+    ],
+    "baseline_missed_extended_met_artifacts": [
+      "openssl-mut-mldsa65-keyusage-key-encipherment-cert",
+      "der-mut-mlkem768-cert-spki-payload-truncated",
+      "der-mut-mldsa44-cert-signature-hashmldsa44",
+      "der-mut-mlkem768-cert-keyusage-empty",
+      "der-mut-mldsa65-cert-keyusage-empty"
+    ],
+    "improvement_classes": {
+      "baseline-runtime-fragile": 3,
+      "extended-matches-detection-without-baseline-runtime-fragility": 3,
+      "extended-recovers-baseline-miss": 3,
+      "extended-recovers-baseline-miss-and-runtime-fragility": 2,
+      "same-detection": 2,
+      "same-pass": 4
+    },
+    "requirement_level": [
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "incomplete",
+        "expected_artifact_count": 2,
+        "expected_artifacts": [
+          "der-mut-mldsa65-cert-keyusage-empty",
+          "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+        ],
+        "extended_detected_artifacts": [
+          "der-mut-mldsa65-cert-keyusage-empty",
+          "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+        ],
+        "extended_detected_count": 2,
+        "requirement_id": "MLDSA-CERT-KU-AT-LEAST-ONE-SIGNING-BIT",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [
+          "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+        ],
+        "baseline_detected_count": 1,
+        "baseline_status": "covered-for-prohibited-bits",
+        "expected_artifact_count": 1,
+        "expected_artifacts": [
+          "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+        ],
+        "extended_detected_artifacts": [
+          "openssl-mut-mldsa65-keyusage-key-encipherment-cert"
+        ],
+        "extended_detected_count": 1,
+        "requirement_id": "MLDSA-CERT-KU-NO-ENCIPHERMENT-OR-AGREEMENT",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [
+          "der-mut-mldsa44-cert-signature-aid-null",
+          "der-mut-mldsa44-cert-signature-aid-octet-params"
+        ],
+        "baseline_detected_count": 2,
+        "baseline_status": "partial",
+        "expected_artifact_count": 2,
+        "expected_artifacts": [
+          "der-mut-mldsa44-cert-signature-aid-null",
+          "der-mut-mldsa44-cert-signature-aid-octet-params"
+        ],
+        "extended_detected_artifacts": [
+          "der-mut-mldsa44-cert-signature-aid-null",
+          "der-mut-mldsa44-cert-signature-aid-octet-params"
+        ],
+        "extended_detected_count": 2,
+        "requirement_id": "MLDSA-CERT-SIGNATURE-AID-PARAMS-ABSENT",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "gap",
+        "expected_artifact_count": 1,
+        "expected_artifacts": [
+          "der-mut-mldsa44-cert-signature-hashmldsa44"
+        ],
+        "extended_detected_artifacts": [
+          "der-mut-mldsa44-cert-signature-hashmldsa44"
+        ],
+        "extended_detected_count": 1,
+        "requirement_id": "MLDSA-PKIX-HASHML-FORBIDDEN",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "partial",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-SPKI-AID-PARAMS-ABSENT",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-DSA",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "gap-or-unverified",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLDSA-SPKI-PUBLIC-KEY-LENGTH",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [
+          "openssl-mut-mlkem768-keyusage-digital-signature-cert"
+        ],
+        "baseline_detected_count": 1,
+        "baseline_status": "incomplete",
+        "expected_artifact_count": 2,
+        "expected_artifacts": [
+          "der-mut-mlkem768-cert-keyusage-empty",
+          "openssl-mut-mlkem768-keyusage-digital-signature-cert"
+        ],
+        "extended_detected_artifacts": [
+          "der-mut-mlkem768-cert-keyusage-empty",
+          "openssl-mut-mlkem768-keyusage-digital-signature-cert"
+        ],
+        "extended_detected_count": 2,
+        "requirement_id": "MLKEM-CERT-KU-KEYENCIPHERMENT-ONLY",
+        "stage": "certificate/profile"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [
+          "der-mut-mlkem768-cert-spki-aid-null",
+          "der-mut-mlkem768-cert-spki-aid-octet-params"
+        ],
+        "baseline_detected_count": 2,
+        "baseline_status": "partial",
+        "expected_artifact_count": 2,
+        "expected_artifacts": [
+          "der-mut-mlkem768-cert-spki-aid-null",
+          "der-mut-mlkem768-cert-spki-aid-octet-params"
+        ],
+        "extended_detected_artifacts": [
+          "der-mut-mlkem768-cert-spki-aid-null",
+          "der-mut-mlkem768-cert-spki-aid-octet-params"
+        ],
+        "extended_detected_count": 2,
+        "requirement_id": "MLKEM-SPKI-AID-PARAMS-ABSENT",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [],
+        "baseline_blocked_by_fatal_count": 0,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "covered-by-external-lint-path",
+        "expected_artifact_count": 0,
+        "expected_artifacts": [],
+        "extended_detected_artifacts": [],
+        "extended_detected_count": 0,
+        "requirement_id": "MLKEM-SPKI-ENCODE-DECODE-IDENTITY",
+        "stage": "SPKI/public-key"
+      },
+      {
+        "algorithm": "ML-KEM",
+        "baseline_blocked_by_fatal_artifacts": [
+          "der-mut-mlkem768-cert-spki-payload-truncated"
+        ],
+        "baseline_blocked_by_fatal_count": 1,
+        "baseline_detected_artifacts": [],
+        "baseline_detected_count": 0,
+        "baseline_status": "covered-for-encoded-key",
+        "expected_artifact_count": 1,
+        "expected_artifacts": [
+          "der-mut-mlkem768-cert-spki-payload-truncated"
+        ],
+        "extended_detected_artifacts": [
+          "der-mut-mlkem768-cert-spki-payload-truncated"
+        ],
+        "extended_detected_count": 1,
+        "requirement_id": "MLKEM-SPKI-PUBLIC-KEY-LENGTH",
+        "stage": "SPKI/public-key"
+      }
+    ]
+  },
+  "extended": {
+    "artifact_count": 17,
+    "artifacts_with_fatal_lints": 0,
+    "by_status": {
+      "error": 10,
+      "pass": 7
+    },
+    "false_positive_artifacts": [],
+    "false_positive_count": 0,
+    "fatal_invalid_artifact_count": 0,
+    "fatal_invalid_artifacts": [],
+    "fatal_valid_artifact_count": 0,
+    "fatal_valid_artifacts": [],
+    "first_useful_hit_artifacts": [
+      "openssl-mut-mlkem768-keyusage-digital-signature-cert",
+      "openssl-mut-mldsa65-keyusage-key-encipherment-cert",
+      "der-mut-mlkem768-cert-spki-aid-null",
+      "der-mut-mlkem768-cert-spki-aid-octet-params",
+      "der-mut-mlkem768-cert-spki-payload-truncated",
+      "der-mut-mldsa44-cert-signature-aid-null",
+      "der-mut-mldsa44-cert-signature-aid-octet-params",
+      "der-mut-mldsa44-cert-signature-hashmldsa44",
+      "der-mut-mlkem768-cert-keyusage-empty",
+      "der-mut-mldsa65-cert-keyusage-empty"
+    ],
+    "first_useful_hit_count": 10,
+    "invalid_count": 10,
+    "invalid_expected_detection_met": 10,
+    "invalid_expected_detection_missed": 0,
+    "invalid_expected_detection_missed_artifacts": [],
+    "latency_ms": {
+      "max": 0.532,
+      "mean": 0.304,
+      "median": 0.251,
+      "p95": 0.532
+    },
+    "redundant_error_artifact_count": 2,
+    "redundant_error_artifacts": [
+      "der-mut-mldsa44-cert-signature-aid-null",
+      "der-mut-mldsa44-cert-signature-aid-octet-params"
+    ],
+    "unexpected_error_artifact_count": 0,
+    "unexpected_error_artifacts": [],
+    "valid_count": 7
+  },
+  "scope": {
+    "artifact_count": 17,
+    "artifact_type": "certificate",
+    "baseline_executable": "third_party/jzlint-main/jlint-pqc/src/main/resources/cli.exe",
+    "baseline_snapshot": "third_party/jzlint-main",
+    "invalid_count": 10,
+    "java_binary": "java",
+    "note": "Comparison is certificate-only. Raw SPKI and private-key-container artifacts remain outside the frozen JZLint CLI baseline.",
+    "valid_count": 7
+  }
+}

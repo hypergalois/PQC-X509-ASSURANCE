@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf
+*.toml text eol=lf
+*.pem text eol=lf
+*.cnf text eol=lf
+
+*.der binary
+*.pdf binary
+*.zip binary
